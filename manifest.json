@@ -19,6 +19,9 @@
 
   "permissions": [
     "activeTab",
-    "http://memories-7.herokuapp.com/*"
+    "http://memories-7.herokuapp.com/*",
+    "https://memories-7.herokuapp.com/*",
+    "http://0.0.0.0:3000/*"
+
   ]
 }

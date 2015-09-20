@@ -21,7 +21,7 @@ var observer = new MutationObserver(function(mutations, observer){
       if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
         callback(xmlHttp.responseText);
     }
-    var url = "https://memories-7.herokuapp.com/add?imageURL=" + srcList[i];
+    var url = "http://memories-7.herokuapp.com/add?imageURL=" + srcList[i];
     xmlHttp.open("GET", url, true);
     xmlHttp.send(null);
   }

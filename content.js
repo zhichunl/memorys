@@ -23,7 +23,7 @@ var observer = new MutationObserver(function(mutations, observer){
     console.log(width);
     if (height >= 200 && width >= 200) {
         var xmlHttp = new XMLHttpRequest();
-        var url = "http://memories-7.herokuapp.com/add?imageURL=" + srcList[k].src+"&user=" + response.data;
+        var url = "https://memories-7.herokuapp.com/add?imageURL=" + srcList[k].src+"&user=" + response.data;
         console.log(url);
         xmlHttp.open("GET", url, true);
         xmlHttp.send(null);

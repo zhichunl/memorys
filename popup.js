@@ -23,13 +23,14 @@ function dumpPics(query){
   chrome.runtime.sendMessage({method:'getLocalStorage', key:'user'},function(response){
      $.ajax({
         type: 'GET',
-        url: 'http://memories-7.herokuapp.com/search?term='+query+'&user='+response.data,
+        url: 'https://memories-7.herokuapp.com/search?term='+query+'&user='+response.data,
       }).done(function(response) {
       var results = $.parseJSON(response);
       console.log(results);
       total = "";
       for(var x = 0; x < results.length; x++) {
-        total += '<img id="pic'+x+'" width=300px src='+results[x] + ' />';
+        total += '<a href="' + results[x] + '" >'
+        total += '<img id="pic'+x+'" width=300px src='+results[x] + ' /></a>';
       }
 
       $('#pics').html(total);

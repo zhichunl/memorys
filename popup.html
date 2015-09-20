@@ -6,12 +6,13 @@
  -->
 <html>
   <head>
-    <title>Getting Started Extension's Popup</title>
+    <title>Memorys</title>
     <style>
       body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
       }
+
       #status {
         /* avoid an excessively wide status text */
         white-space: pre;
@@ -27,9 +28,16 @@
       -
       - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
      -->
+     <script src="jquery-2.1.4.min.js"></script>
     <script src="popup.js"></script>
   </head>
   <body>
+      <div>
+      Search Pictures: 
+      <input id="search">
+      </div>
+      <input type="button" id="filter" name="Search" value="Search" />
+      <div id="pics"></div>
     <div id="status"></div>
     <img id="image-result" hidden>
   </body>

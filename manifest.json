@@ -9,7 +9,16 @@
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
+
+  "content_scripts": [
+  {
+   "matches": ["*://imgur.com/*", "*://*.imgur.com/*"],
+   "js": ["content.js"]
+  }
+],
+
   "permissions": [
-    "activeTab"
+    "activeTab",
+    "https://memories-7.herokuapp.com/*"
   ]
 }

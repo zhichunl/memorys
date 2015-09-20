@@ -9,16 +9,30 @@
     <title>Memorys</title>
     <style>
       body {
-        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-family: Arial;
         font-size: 100%;
       }
-
-      #status {
-        /* avoid an excessively wide status text */
-        white-space: pre;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        max-width: 400px;
+      #search {
+        margin-top: 8px;
+      }
+      #filter {
+        background-color:#909090;
+        display:inline-block;
+        cursor:pointer;
+        color:#ffffff;
+        font-family:Arial;
+        text-decoration:none;
+        text-shadow:0px 1px 0px #283966;
+        padding:5px;
+        margin-top: 8px;
+        float:right;
+      }
+      #filter:hover {
+        background-color:#476e9e;
+      }
+      #filter:active {
+        position:relative;
+        top:1px;
       }
     </style>
 
@@ -33,13 +47,13 @@
   </head>
   <body>
       <div>
-      Search Pictures:
-      <input id="search">
+        Search Pictures:
       </div>
-      <input type="button" id="filter" name="Search" value="Search" />
+      <div>
+        <input id="search">
+      </div>
+      <input type="button" id="filter" name="Search" value="Search"/>
       <div id="pics"></div>
-    <div id="status"></div>
-    <img id="image-result" hidden>
   </body>
 </html>
 

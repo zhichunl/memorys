@@ -12,16 +12,22 @@
 
   "content_scripts": [
   {
-   "matches": ["*://imgur.com/*", "*://*.imgur.com/*"],
+   "matches": ["<all_urls>"],
    "js": ["content.js"]
   }
 ],
+  "background": {
+      "scripts" : ["background.js"],
+      "persistent": true
+  },
 
   "permissions": [
     "activeTab",
+    "storage",
     "http://memories-7.herokuapp.com/*",
     "https://memories-7.herokuapp.com/*",
-    "http://0.0.0.0:3000/*"
-
+    "http://0.0.0.0:3000/*",
+    "identity",
+    "identity.email"
   ]
 }

@@ -1,6 +1,6 @@
 $(function () {
   $("#filter").click(function(){
-    search()
+    search();
   });
   $("#search").keyup(function(event){
     if (event.keyCode == 13) {
@@ -15,27 +15,29 @@ function search() {
 }
 
 function openLink(uri) {
+  console.log(uri)
   chrome.tabs.create({url: uri});
 }
 
 function dumpPics(query){
-    $.ajax({
+  chrome.runtime.sendMessage({method:'getLocalStorage', key:'user'},function(response){
+     $.ajax({
         type: 'GET',
-        url: 'http://memories-7.herokuapp.com/search?term='+query,
-
-    }).done(function(response) {
+        url: 'http://memories-7.herokuapp.com/search?term='+query+'&user='+response.data,
+      }).done(function(response) {
       var results = $.parseJSON(response);
-
+      console.log(results);
       total = "";
-      for(var x in results) {
-        total += '<img id="pic'+x+'" width=300px src='+results[x] + '/></a>';
+      for(var x = 0; x < results.length; x++) {
+        total += '<img id="pic'+x+'" width=300px src='+results[x] + ' />';
       }
 
       $('#pics').html(total);
-      for(var x in results) {
-        $('#pic'+x).click(function () {openLink(results[x])});
+      for(var x = 0; x < results.length; x++) {
+        $('#pic'+x).on('click', function () {openLink(this.src)});
       }
     });
+  });
 }
 
 
